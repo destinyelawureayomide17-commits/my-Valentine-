@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Will You Be My Valentine?</title>
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ffb3c6);
+      font-family: 'Poppins', Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 30px 25px;
+      border-radius: 22px;
+      text-align: center;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+      max-width: 360px;
+      width: 90%;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff4d6d;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    button {
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .yes1 {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .yes2 {
+      background: #ff8fab;
+      color: white;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ff4d6d;
+      display: none;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -10px;
+      color: #ff4d6d;
+      font-size: 18px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Olamiii 💖</h1>
+
+    <p>
+      7 days from now marks one whole year of choosing you every single day…
+      and I still choose you harder every morning.
+      <br><br>
+      So my love, my <b>QUEEN</b>, my safe place, my favorite person in every lifetime…
+      <br><br>
+      <b>Will you be my Valentine? 🌹</b>
+      <br><br>
+      Not just for February 14th, but for every day that feels like love…
+      which, with you, is basically every day.
+    </p>
+
+    <div class="buttons">
+      <button class="yes1" onclick="acceptLove()">Yes 💕</button>
+      <button class="yes2" onclick="acceptLove()">Yes 😍</button>
+    </div>
+
+    <div class="result" id="result">
+      You just made my heart smile forever ❤️
+    </div>
+  </div>
+
+  <script>
+    function acceptLove() {
+      document.getElementById("result").style.display = "block";
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 2 + 4) + "s";
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 6000);
+    }
+
+    setInterval(createHeart, 400);
+  </script>
+
+</body>
+</html>
